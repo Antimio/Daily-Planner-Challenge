@@ -22,4 +22,17 @@ for (index = 9; index <= 17; index++) { //declare a for loop that will, in effec
 
     body.attr("class", "margin-gap"); //Set the class attribute of the body element so that it links to the css file and creates a space between the bottom of the body section and the end of the page.
 
+    var currentTime = dayjs().hour(); //Capture the curent hour, using the Day.js API. Do this by declaring it into a variable.This will be dynamic as it will always update whenever the for loop runs, which is whenever the page is opened.
+
+
+    //set up an if statement that analises the difference between the current time and the time as represented by the current value of index.
+    if (index < currentTime) { // If the index is less than the value of current time...
+        textArea.addClass("past"); // ...add the class "past" to the text-area element. This will add the css styling representing a past hour (gray).
+    } else if (index === currentTime) { // If the index is equal to the value of current time...
+        textArea.addClass("present"); //...add the class "past" to the text-area element. This will add the css styling representing the current hour (red).
+    } else { // If the index is greater than the value of current time...
+        textArea.addClass("future") //...add the class "past" to the text-area element. This will add the css styling representing a future hour (green).
+    };
+
+
 }
