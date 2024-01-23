@@ -46,6 +46,16 @@ for (index = 9; index <= 17; index++) { //declare a for loop that will, in effec
     };
 
     persistEvents() //Call the above function whenever the page is opened or refreshed.
+};
 
-
-}
+//Create an event listener for all the elements with the class "saveBtn".
+$(".saveBtn").on("click", function() { //Whenever the element is clicked...
+    var time = $(this).siblings(".hour").text(); //...get the text value of this element's sibling with the class of "hour" and capture it into a variable and...
+    var scheduleEvent = $(this).siblings(".description").val(); //...get the content value of this element's sibling with the class of "description" and capture it into a variable.
+    var empty = ""; // Set up a variable with an empty string to hadle the possiblity of deleting an event from the palnner.
+    if (scheduleEvent) { // If there is something in the text area (.description) that is a sibling of this event listener element...
+        localStorage.setItem(time, scheduleEvent); //...save the item to the local storage, with the key being the value of the time variable and the value being the content of the scheduleEvent variable.
+    } else { //If there is nothing in the text area when the button is clicked...
+        localStorage.setItem(time, empty); //... save the time as the key and the empty string as the value.
+    };
+});
