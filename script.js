@@ -17,4 +17,9 @@ for (index = 9; index <= 17; index++) { //declare a for loop that will, in effec
     var saveBtn = $("<button>").attr("class", "col-2 col-sm-1 saveBtn").append("<i class='fas fa-save'></i>"); //Use JQuery to create a new button element and then setting up class attributes to it that makes it connected to the pertinent css selectors in the style.css sheet; and that also makes it responsive as per the bootstrap linkage. Change the text element to carry the current index and format it to show the time. Append an "i" element that obtains an icon from Fontawsome. Store this into a variable.
 
     timeBlock.append(hour, textArea, saveBtn).appendTo(mainContainer); //Link the separate elements, one after the other, left to right, put them inside the first div created; and then add it to the the main container element. This will, in effect, create the table with all the time slots, from 9 to 17.
+
+    header.attr("class", "margin-gap"); //Set the class attribute of the header element so that it links to the css file and creates a space between the header section and the mainContainer element (which is directly underneath it).
+
+    body.attr("class", "margin-gap"); //Set the class attribute of the body element so that it links to the css file and creates a space between the bottom of the body section and the end of the page.
+
 }
