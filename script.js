@@ -34,5 +34,18 @@ for (index = 9; index <= 17; index++) { //declare a for loop that will, in effec
         textArea.addClass("future") //...add the class "past" to the text-area element. This will add the css styling representing a future hour (green).
     };
 
+    //Set up a function that will remember the current state of the page
+    function persistEvents() {
+        $(".hour").each(function() { //Go through each element with the class of "hour".
+            var slot = $(this).text(); //Capture the text value of each of the elements into a variable. The "this" ensures that the current ".hour" element is the one being treated.
+            var savedEvent = localStorage.getItem(slot); //Get, from the local storage, the value corresponsing to the "slot" (the current value of the that variable) key; and save it into a new variable declaration.
+            if (savedEvent) { //If there is anything to retrieve from the local storage...
+                $(this).siblings(".description").val(savedEvent); //...search one of the siblings (other elements inside the same parent element: in this case, the sibling with the class "description") of the current element with the "hour" class; and set it's value to what has been retrieved from local sotorage for the current key.
+            };
+        });
+    };
+
+    persistEvents() //Call the above function whenever the page is opened or refreshed.
+
 
 }
