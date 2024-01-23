@@ -59,3 +59,5 @@ $(".saveBtn").on("click", function() { //Whenever the element is clicked...
         localStorage.setItem(time, empty); //... save the time as the key and the empty string as the value.
     };
 });
+
+setInterval(displayTime, 1000); //Call the displayTime function every 1000 milliseconds (i.e. one second). This will keep the time ticking for the user to see.
